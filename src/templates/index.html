@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create User</h1>
+<form method="post" action="{{ url_for('user_controller.create_user') }}">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Get User</h1>
+<form method="get" action="{{ url_for('user_controller.get_user', username=username) }}">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Update User</h1>
+<form method="put" action="{{ url_for('user_controller.update_user', username=username) }}">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">New Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Delete User</h1>
+<form method="delete" action="{{ url_for('user_controller.delete_user', username=username) }}">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,10 +1,13 @@
 from flask import Flask
 from flask_migrate import Migrate
+
+from src.controllers.user_controller import user_controller
 from src.db_instance import db
 
 
 def create_app():
     flask_app = Flask(__name__)
+    flask_app.register_blueprint(user_controller)
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost:3306/example'
 
     db.init_app(flask_app)
