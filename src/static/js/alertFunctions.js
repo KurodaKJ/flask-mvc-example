@@ -1,3 +1,4 @@
+// Purpose: This file contains the functions that are used to submit forms and display alerts.
 function submitFormWithAlert(formId, url, type) {
     $(document).ready(function(){
         $(`#${formId}`).submit(function(e){
