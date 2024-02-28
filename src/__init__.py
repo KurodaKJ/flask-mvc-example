@@ -9,6 +9,7 @@ def create_app():
     flask_app = Flask(__name__)
     flask_app.register_blueprint(user_controller)
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost:3306/example'
+    flask_app.config['server_name'] = 'localhost:5000'
 
     db.init_app(flask_app)
     migrate = Migrate(flask_app, db)
