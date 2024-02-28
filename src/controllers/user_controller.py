@@ -24,13 +24,13 @@ def create_user():
         return jsonify({'message': 'Database error' + str(e)})
 
 
-@user_controller.route('/get_user', methods=['GET'])
+@user_controller.route('/get_user', methods=['POST'])
 def get_user():
-    username = request.args.get('username')
+    username = request.form['username']
     try:
         user = UserModel.query.filter_by(username=username).first()
         if user:
-            return jsonify(user.as_dict())
+            return jsonify({'message': 'User found'})
         else:
             return jsonify({'message': 'User not found'})
     except SQLAlchemyError as e:
